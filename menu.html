@@ -1,0 +1,553 @@
+
+
+Verify
+Run
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrewHub - Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light background for contrast */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .menu-section {
+            display: none; /* Hide sections by default */
+            margin-top: 20px;
+            padding: 20px;
+            background: white; /* White background for sections */
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item {
+            margin: 10px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px; /* Set a fixed width for the menu items */
+            transition: transform 0.3s;
+            background-color: #fff; /* White background for menu items */
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .price {
+            font-weight: bold;
+            color: #ffcc00; /* Highlight price */
+        }
+
+        .add-to-cart {
+            background: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s; /* Smooth transition */
+        }
+
+        .add-to-cart:hover {
+            background: #e6b800;
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        /* Section Button Styles */
+        .section-button {
+            background-color: #ffcc00; /* Bright yellow color */
+            color: #333; /* Dark text color */
+            padding: 15px 30px; /* Larger padding for bigger buttons */
+            border: none;
+            border-radius: 5px;
+            font-size: 18px; /* Larger font size */
+            margin: 10px; /* Margin around buttons */
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s; /* Smooth transition */
+            display: inline-block; /* Inline block for proper spacing */
+        }
+
+        .section-button:hover {
+            background-color: #e6b800; /* Darker yellow on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .menu-item {
+                width: 90%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BrewHub</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="menu" style="margin-top: 60px;"> <!-- Added margin to avoid header overlap -->
+        <h2>Our Menu</h2>
+
+        <!-- Section Buttons -->
+        <button onclick="toggleSection('coffee')">Coffee</button>
+        <button onclick="toggleSection('tea')">Tea</button>
+        <button onclick="toggleSection('snacks')">Snacks</button>
+        <button onclick="toggleSection('sandwiches')">Sandwiches</button>
+        <button onclick="toggleSection('desserts')">Desserts</button>
+        <button onclick="toggleSection('beverages')">Beverages</button>
+
+        <!-- Coffee Section -->
+        <div id="coffee" class="menu-section">
+            <h3>Coffee</h3>
+            <div class="menu-item">
+                <h4>Espresso</h4>
+                <p>Strong and bold coffee shot.</p>
+                <p class="price">Price: ₹100</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Latte</h4>
+                <p>Creamy coffee with steamed milk.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Cappuccino</h4>
+                <p>Rich coffee topped with frothy milk.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Mocha</h4>
+                <p>Chocolate-flavored coffee.</p>
+                <p class="price">Price: ₹180</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Cold Brew</h4>
+                <p>Refreshing cold coffee.</p>
+                <p class="price">Price: ₹120</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Affogato</h4>
+                <p>Ice cream topped with hot espresso.</p>
+                <p class="price">Price: ₹200</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class ="menu-item">
+                <h4>Flat White</h4>
+                <p>Smooth coffee with velvety microfoam.</p>
+                <p class="price">Price: ₹160</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Irish Coffee</h4>
+                <p>Coffee with whiskey and cream.</p>
+                <p class="price">Price: ₹250</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Caramel Macchiato</h4>
+                <p>Espresso with caramel and milk.</p>
+                <p class="price">Price: ₹180</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Turmeric Latte</h4>
+                <p>Spiced latte with turmeric and milk.</p>
+                <p class="price">Price: ₹160</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Tea Section -->
+        <div id="tea" class="menu-section">
+            <h3>Tea</h3>
+            <div class="menu-item">
+                <h4>Masala Chai</h4>
+                <p>Spiced Indian tea.</p>
+                <p class="price">Price: ₹50</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Green Tea</h4>
+                <p>Refreshing and healthy green tea.</p>
+                <p class="price">Price: ₹70</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Herbal Tea</h4>
+                <p>Caffeine-free herbal infusion.</p>
+                <p class="price">Price: ₹80</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>English Breakfast</h4>
+                <p>Classic black tea blend.</p>
+                <p class="price">Price: ₹60</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Chai Latte</h4>
+                <p>Spiced tea with steamed milk.</p>
+                <p class="price">Price: ₹90</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Mint Tea</h4>
+                <p>Refreshing tea with mint leaves.</p>
+                <p class="price">Price: ₹70</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Lemon Tea</h4>
+                <p>Tea with a hint of lemon.</p>
+                <p class="price">Price: ₹60</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Ginger Tea</h4>
+                <p>Tea infused with fresh ginger.</p>
+                <p class="price">Price: ₹70</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Chai with Almond Milk</h4>
+                <p>Chai made with almond milk.</p>
+                <p class="price">Price: ₹100</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Peach Iced Tea</h4>
+                <p>Refreshing iced tea with peach flavor.</p>
+                <p class="price">Price: ₹90</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Snacks Section -->
+        <div id="snacks" class="menu-section">
+            <h3>Snacks</h3>
+            <div class="menu-item">
+                <h4>French Fries</h4>
+                <p>Crispy golden fries.</p>
+                <p class="price">Price: ₹80</p>
+                < button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Nachos</h4>
+                <p>Crispy tortilla chips with cheese.</p>
+                <p class="price">Price: ₹120</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Garlic Bread</h4>
+                <p>Toasted bread with garlic butter.</p>
+                <p class="price">Price: ₹100</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Spring Rolls</h4>
+                <p>Crispy rolls filled with vegetables.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Onion Rings</h4>
+                <p>Deep-fried onion rings.</p>
+                <p class="price">Price: ₹90</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Cheese Sticks</h4>
+                <p>Fried cheese sticks served with dip.</p>
+                <p class="price">Price: ₹130</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Popcorn</h4>
+                <p>Lightly salted popcorn.</p>
+                <p class="price">Price: ₹50</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Stuffed Jalapeños</h4>
+                <p>Spicy jalapeños stuffed with cheese.</p>
+                <p class="price">Price: ₹140</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Vegetable Platter</h4>
+                <p>Assorted fresh vegetables with dip.</p>
+                <p class="price">Price: ₹120</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Mini Tacos</h4>
+                <p>Small tacos filled with beans and cheese.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Sandwiches Section -->
+        <div id="sandwiches" class="menu-section">
+            <h3>Sandwiches</h3>
+            <div class="menu-item">
+                <h4>Club Sandwich</h4>
+                <p>Triple-layer sandwich with chicken and veggies.</p>
+                <p class="price">Price: ₹200</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Grilled Cheese Sandwich</h4>
+                <p>Classic grilled cheese with crispy bread.</p>
+                <p class="price">Price: ₹120</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Veggie Sandwich</h4>
+                <p>Sandwich loaded with fresh vegetables.</p>
+                <p class="price">Price: ₹100</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Chicken Sandwich</h4>
+                <p>Grilled chicken with lettuce and mayo.</p>
+                <p class="price">Price: ₹180</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>BLT Sandwich</h4>
+                <p>Bacon, lettuce, and tomato sandwich.</p>
+                <p class="price">Price: ₹220</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Caprese Sandwich</h4>
+                <p>Fresh mozzarella, tomatoes, and basil.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Egg Salad Sandwich</h4>
+                <p>Classic egg salad with lettuce.</p>
+                <p class="price">Price: ₹130</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Turkey Sandwich</h4>
+                <p>Turkey slices with cheese and veggies.</p>
+                <p class="price">Price: ₹200</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Avocado Toast</h4>
+                <p>Toasted bread topped with smashed avocado.</p>
+                <p class="price">Price: ₹160</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Hummus Sandwich</h4>
+                <p>Sandwich with hummus and fresh veggies.</p>
+                <p class="price">Price: ₹140</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Desserts Section -->
+        <div id="desserts" class="menu-section">
+            <h3>Desserts</h3>
+            <div class="menu-item">
+                <h4>Chocolate Cake</h4>
+                <p>Rich and moist chocolate cake.</p>
+                <p class="price">Price: ₹180</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Cheesecake</h4>
+                <p>Creamy cheesecake with a graham cracker crust.</p>
+                <p class="price">Price: ₹200</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Tiramisu</h4>
+                <p>Classic Italian coffee-flavored dessert.</p>
+                <p class="price">Price: ₹220</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Brownie</h4>
+                <p>Fudgy brownie served with ice cream.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Fruit Tart</h4>
+                <p>Pastry crust filled with custard and fresh fruits.</p>
+                <p class="price">Price: ₹180</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Ice Cream Sundae</h4>
+                <p>Ice cream topped with chocolate sauce and nuts.</p>
+                <p class="price">Price: ₹160</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Apple Pie</h4>
+                <p>Classic apple pie served warm.</p>
+                <p class="price">Price: ₹170</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Panna Cotta</h4>
+                <p>Italian dessert made with cream and vanilla.</p>
+                <p class="price">Price: ₹190</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Chocolate Mousse</h4>
+                <p>Light and airy chocolate mousse.</p>
+                <p class="price">Price: ₹200</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Banoffee Pie</h4>
+                <p>Delicious pie with bananas and toffee.</p>
+                <p class="price">Price: ₹210</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Beverages Section -->
+        <div id="beverages" class="menu-section">
+            <h3>Beverages</h3 <div class="menu-item">
+                <h4>Soft Drinks</h4>
+                <p>Refreshing carbonated drinks.</p>
+                <p class="price">Price: ₹60</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Fresh Lemonade</h4>
+                <p>Homemade lemonade with fresh lemons.</p>
+                <p class="price">Price: ₹80</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Iced Coffee</h4>
+                <p>Chilled coffee served over ice.</p>
+                <p class="price">Price: ₹120</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Milkshake</h4>
+                <p>Thick and creamy milkshake in various flavors.</p>
+                <p class="price">Price: ₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Fruit Smoothie</h4>
+                <p>Blended smoothie with fresh fruits.</p>
+                <p class="price">Price: ₹160</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Hot Chocolate</h4>
+                <p>Rich and creamy hot chocolate.</p>
+                <p class="price">Price: ₹100</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Chai Latte</h4>
+                <p>Spiced tea with steamed milk.</p>
+                <p class="price">Price: ₹90</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Sparkling Water</h4>
+                <p>Refreshing sparkling mineral water.</p>
+                <p class="price">Price: ₹70</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Fruit Punch</h4>
+                <p>Refreshing mix of fruit juices.</p>
+                <p class="price">Price: ₹90</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Herbal Infusion</h4>
+                <p>Caffeine-free herbal drink.</p>
+                <p class="price">Price: ₹80</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('.menu-section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
